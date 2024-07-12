@@ -43,11 +43,20 @@ import * as atlas from 'azure-maps-control';
 ### Examples
 
 #### FlyChart
+![image](https://github.com/user-attachments/assets/3af869ef-60a2-4c66-86f7-a0576bcfaa71)
 
 ### Heart Chart
+![image](https://github.com/user-attachments/assets/2013714a-b5da-44f8-9f2a-146c9983a771)
 
 #### Line Chart
+![image](https://github.com/user-attachments/assets/402e1268-2ea6-409c-80f6-7e928f385dc5)
 
-#### Pie Chart
+#### Pie Chart for echarts < 5.4.0
+![image](https://github.com/user-attachments/assets/e9680876-4bb0-4d6f-b133-74524919b79a)
+
+#### Pie Chart for echarts >= 5.4.0
+![image](https://github.com/user-attachments/assets/72117a8d-e282-4568-ac17-6d2408285a33)
 
 #### Scatter Chart
+![image](https://github.com/user-attachments/assets/9a6861ad-1927-4618-bf56-1b7066a646ff)
+
