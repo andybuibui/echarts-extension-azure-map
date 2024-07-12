@@ -1,19 +1,58 @@
 {
   "name": "echarts-extension-azure-map",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andybuibui/echarts-extension-azure-map.git"
-  },
-  "author": "",
-  "license": "ISC",
+  "private": false,
+  "description": "Azure Map for Apache ECharts (https://github.com/apache/echarts)",
+  "keywords": [
+    "echarts",
+    "azure-map",
+    "echarts-extension",
+    "map",
+    "azuremap",
+    "echarts-azure-map",
+    "echarts4",
+    "echarts5",
+    "azure",
+    "echarts-extension-azure-map"
+  ],
+  "homepage": "https://github.com/andybuibui/echarts-extension-azure-map#readme",
   "bugs": {
     "url": "https://github.com/andybuibui/echarts-extension-azure-map/issues"
   },
-  "homepage": "https://github.com/andybuibui/echarts-extension-azure-map#readme"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andybuibui/echarts-extension-azure-map"
+  },
+  "license": "MIT",
+  "author": "andybuibui",
+  "main": "dist/echarts-extension-azure-map.min.js",
+  "module": "dist/echarts-extension-azure-map.esm.js",
+  "types": "index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "rollup -c --bundleConfigAsCjs",
+    "format": "prettier --cache --write ."
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/echarts": "^4.9.22",
+    "azure-maps-control": "^3.1.2",
+    "chalk": "^4.1.2",
+    "echarts": "^5.5.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.8.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "rollup": "^4.17.2"
+  }
 }

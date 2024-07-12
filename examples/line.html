@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>echarts extension azuremaps</title>
+    <link
+      href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+    <!-- ECharts CDN -->
+    <script
+      type="text/javascript"
+      src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"
+    ></script>
+    <script type="text/javascript" src="../dist/echarts-extension-azure-map.min.js"></script>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body,
+      #app,
+      #echarts-azuremap {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body onload="loadMap()">
+    <div id="app">
+      <div id="echarts-azuremap"></div>
+    </div>
+  </body>
+  <script>
+    const linesDataURI =
+      'https://cdn.jsdelivr.net/gh/apache/echarts-examples/public/data/asset/data/lines-bus.json';
+
+    function loadMap() {
+      // initialize chart
+      fetch(linesDataURI, { method: 'GET' })
+        .then((response) => response.json())
+        .then((data) => {
+          // convert
+          const hStep = 300 / (data.length - 1);
+          const busLines = [].concat.apply(
+            [],
+            data.map((busLine, idx) => {
+              let prevPt;
+              let points = [];
+              for (let i = 0; i < busLine.length; i += 2) {
+                let pt = [busLine[i], busLine[i + 1]];
+                if (i > 0) {
+                  pt = [prevPt[0] + pt[0], prevPt[1] + pt[1]];
+                }
+                prevPt = pt;
+
+                points.push([pt[0] / 1e4, pt[1] / 1e4]);
+              }
+              return {
+                coords: points,
+                lineStyle: {
+                  color: echarts.color.modifyHSL('#5A94DF', Math.round(hStep * idx)),
+                },
+              };
+            }),
+          );
+          const option = {
+            azuremap: {
+              view: 'Auto',
+              language: 'en-US',
+              center: [116.46, 39.92],
+              zoom: 10,
+              authOptions: {
+                authType: 'subscriptionKey',
+                subscriptionKey: 'your subscriptionKey',
+              },
+            },
+            series: [
+              {
+                type: 'lines',
+                coordinateSystem: 'azuremap',
+                polyline: true,
+                data: busLines,
+                silent: true,
+                lineStyle: {
+                  opacity: 0.2,
+                  width: 1,
+                },
+                progressiveThreshold: 500,
+                progressive: 200,
+              },
+              {
+                type: 'lines',
+                coordinateSystem: 'azuremap',
+                polyline: true,
+                data: busLines,
+                lineStyle: {
+                  width: 0,
+                },
+                effect: {
+                  constantSpeed: 20,
+                  show: true,
+                  trailLength: 0.1,
+                  symbolSize: 1.5,
+                },
+                zlevel: 1,
+              },
+            ],
+          };
+          const chart = echarts.init(document.getElementById('echarts-azuremap'));
+          chart.setOption(option);
+        })
+        .catch((e) => {
+          console.log('error: ' + e.toString());
+        });
+    }
+  </script>
+</html>
