@@ -32,11 +32,13 @@ You can also import this extension by `require` or `import` if you are using `we
 // use require
 require('echarts');
 require('echarts-extension-azure-map');
+require('azure-maps-control/dist/atlas.min.css');
 require('azure-maps-control');
 
 // use import
 import * as echarts from 'echarts';
 import 'echarts-extension-azure-map';
+import "azure-maps-control/dist/atlas.min.css";
 import * as atlas from 'azure-maps-control';
 ```
 
