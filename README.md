@@ -1,8 +1,8 @@
 [![NPM version](https://img.shields.io/npm/v/echarts-extension-azure-map.svg?style=flat)](https://www.npmjs.org/package/echarts-extension-azure-map) [![NPM Downloads](https://img.shields.io/npm/dm/echarts-extension-azure-map.svg)](https://npmcharts.com/compare/echarts-extension-azure-map?minimal=true) [![jsDelivr Downloads](https://data.jsdelivr.com/v1/package/npm/echarts-extension-azure-map/badge?style=rounded)](https://www.jsdelivr.com/package/npm/echarts-extension-azure-map)
 
-## Azure Map extension for Apache ECharts
+## Azure Map Extension for Apache ECharts
 
-This is an Azure Map extension for [Apache ECharts](https://echarts.apache.org/en/index.html)
+This is an Azure Map Extension for [Apache ECharts](https://echarts.apache.org/en/index.html)
 
 ### Installation
 
@@ -62,3 +62,8 @@ import * as atlas from 'azure-maps-control';
 #### Scatter Chart
 ![image](https://github.com/user-attachments/assets/9a6861ad-1927-4618-bf56-1b7066a646ff)
 
+### More Links
+- [echarts-extension-bingmaps](https://github.com/andybuibui/echarts-extension-bingmaps)
+- [echarts-extension-amap](https://github.com/plainheart/echarts-extension-amap)
+- [echarts-extension-gmap](https://github.com/plainheart/echarts-extension-gmap)
+- [echarts-extension-bmap](https://github.com/apache/echarts/blob/master/extension-src/bmap/bmap.ts)
