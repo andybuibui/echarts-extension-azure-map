@@ -1,6 +1,6 @@
 {
   "name": "echarts-extension-azure-map",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": false,
   "description": "Azure Map for Apache ECharts (https://github.com/apache/echarts)",
   "keywords": [
