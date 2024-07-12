@@ -53601,16 +53601,15 @@ uniform ${r} ${n} u_${i};
     }));
 
   function dataToCoordSize(dataSize, dataItem) {
-    // eslint-disable-next-line no-param-reassign
-    dataItem = dataItem || [0, 0];
+    var finalDataItem = dataItem || [0, 0];
     return echarts.util.map([0, 1], function (dimIdx) {
-      var val = dataItem[dimIdx];
+      var val = finalDataItem[dimIdx];
       var halfSize = dataSize[dimIdx] / 2;
       var p1 = [];
       var p2 = [];
       p1[dimIdx] = val - halfSize;
       p2[dimIdx] = val + halfSize;
-      p1[1 - dimIdx] = p2[1 - dimIdx] = dataItem[1 - dimIdx];
+      p1[1 - dimIdx] = p2[1 - dimIdx] = finalDataItem[1 - dimIdx];
       return Math.abs(this.dataToPoint(p1)[dimIdx] - this.dataToPoint(p2)[dimIdx]);
     }, this);
   }
@@ -53658,7 +53657,6 @@ uniform ${r} ${n} u_${i};
   AzureMapCoordSysProto.pointToData = function (pt) {
     var mapOffset = this._mapOffset;
     // https://learn.microsoft.com/zh-cn/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-pixelstopositions
-    // eslint-disable-next-line no-param-reassign
     var _this$_azuremap$pixel = _slicedToArray(this._azuremap.pixelsToPositions([new Pixel(pt[0] + mapOffset[0], pt[1] + mapOffset[1])])[0], 2),
       lat = _this$_azuremap$pixel[0],
       lng = _this$_azuremap$pixel[1];
@@ -53819,7 +53817,7 @@ uniform ${r} ${n} u_${i};
 
   var AzureMapView = {
     type: COMPONENT_TYPE,
-    render: function render(azMapModel, _ecModel, api) {
+    render: function render(azMapModel, ecModel, api) {
       var rendering = true;
       var azmap = azMapModel.getAzureMap();
       var viewportRoot = api.getZr().painter.getViewportRoot();

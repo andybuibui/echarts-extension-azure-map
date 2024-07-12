@@ -22,7 +22,6 @@ module.exports = {
     'no-unneeded-ternary': 2,
     radix: 2,
     semi: [2, 'always'],
-    camelcase: 2,
     'comma-spacing': 2,
     'comma-style': 2,
     'eol-last': 2,
